@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="sidebar_frame">
+        <attr name="attach_align">
+            <enum name="left" value="0" />
+            <enum name="top" value="1" />
+            <enum name="right" value="2" />
+            <enum name="bottom" value="3" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="slide_sidebar_frame">
+        <attr name="slide_duration_time" format="integer" />
+        <attr name="listener_range" format="float" />
+    </declare-styleable>
+
+    <!--<declare-styleable name="slideSidebarContainerView">-->
+        <!--<attr name="slideSidebarViewLeft" format="reference" />-->
+        <!--<attr name="slideSidebarViewTop" format="reference" />-->
+        <!--<attr name="slideSidebarViewRight" format="reference" />-->
+        <!--<attr name="slideSidebarViewBottom" format="reference" />-->
+    <!--</declare-styleable>-->
+</resources>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.com.lich.sidebar.container.SlideSidebarContainerFrame
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:sidebar="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SlideSidebarContainerFrameDemo"
+        android:id="@+id/textView_slideSidebarContainerFrame"
+        android:gravity="center" />
+
+    <cn.com.lich.sidebar.frame.SimpleSlideSidebarFrame
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="top"
+        android:background="#FF00FF"
+        sidebar:attach_align="top"
+        sidebar:slide_duration_time="700"
+        sidebar:listener_range="0.2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SlideSidebarFrameDemo"
+            android:id="@+id/textView_simpleSlideSidebarFrame_top"
+            android:layout_gravity="center"
+            android:gravity="center" />
+
+    </cn.com.lich.sidebar.frame.SimpleSlideSidebarFrame>
+
+    <cn.com.lich.sidebar.frame.SimpleSlideSidebarFrame
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:background="#FFFF00"
+        sidebar:attach_align="left"
+        sidebar:slide_duration_time="500"
+        sidebar:listener_range="0.2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SlideSidebarFrameDemo"
+            android:id="@+id/textView_simpleSlideSidebarFrame_left"
+            android:layout_gravity="center"
+            android:gravity="center" />
+
+    </cn.com.lich.sidebar.frame.SimpleSlideSidebarFrame>
+
+    <cn.com.lich.sidebar.frame.SimpleSlideSidebarFrame
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:layout_gravity="right|bottom"
+        android:background="#00FFFF"
+        sidebar:attach_align="right"
+        sidebar:slide_duration_time="500"
+        sidebar:listener_range="0.2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SlideSidebarFrameDemo"
+            android:id="@+id/textView_simpleSlideSidebarFrame_right"
+            android:layout_gravity="center"
+            android:gravity="center" />
+
+    </cn.com.lich.sidebar.frame.SimpleSlideSidebarFrame>
+
+</cn.com.lich.sidebar.container.SlideSidebarContainerFrame>
