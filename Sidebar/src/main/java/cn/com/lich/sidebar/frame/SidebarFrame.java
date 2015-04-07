@@ -2,7 +2,6 @@ package cn.com.lich.sidebar.frame;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
@@ -116,7 +115,9 @@ public abstract class SidebarFrame extends FrameLayout {
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+
         if (mVisibleX == Float.MAX_VALUE && mVisibleY == Float.MAX_VALUE && mVisibleWidth == Integer.MIN_VALUE && mVisibleHeight == Integer.MIN_VALUE) {
             mVisibleX = getX();
             mVisibleY = getY();
@@ -124,8 +125,6 @@ public abstract class SidebarFrame extends FrameLayout {
             mVisibleHeight = getHeight();
             hide();
         }
-
-        super.onDraw(canvas);
     }
 
     /**
