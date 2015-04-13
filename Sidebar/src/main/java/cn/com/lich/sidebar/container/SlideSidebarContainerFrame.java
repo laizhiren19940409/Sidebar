@@ -34,18 +34,32 @@ public class SlideSidebarContainerFrame extends SidebarContainerFrame implements
 
     private GestureDetector mGestureDetector = null;
 
+    /**
+     * 滑动侧边栏容器上的最后一次按下事件。
+     */
+    private MotionEvent mLastDownEvent = null;
+
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
+        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+            if (mLastDownEvent != null)
+                mLastDownEvent.recycle();
+
+            mLastDownEvent = MotionEvent.obtain(ev);
+        }
+
         int count = getSidebarFrameChildCount();
 
         for (int n = 0; n < count; n++) {
             SidebarFrame sidebarFrame = getSidebarFrameChildAt(n);
 
-            if (sidebarFrame instanceof SlideSidebarFrame && ((SlideSidebarFrame) sidebarFrame).getSlideState() != SlideSidebarFrame.SLIDE_STATE_ONAUTOSLIDE && onTouchEvent(ev))
+            if (sidebarFrame instanceof SlideSidebarFrame && ((SlideSidebarFrame) sidebarFrame).getSlideState() != SlideSidebarFrame.SLIDE_STATE_ONAUTOSLIDE && ((SlideSidebarFrame) sidebarFrame).isTouchOnListenerRange(ev) && ev.getAction() == MotionEvent.ACTION_MOVE && ((SlideSidebarFrame) sidebarFrame).isSlideDistanceEffective(mLastDownEvent, ev)) {
+                onTouchEvent(mLastDownEvent);
                 return true;
+            }
         }
 
-        return super.onInterceptTouchEvent(ev);
+        return false;
     }
 
     @Override
